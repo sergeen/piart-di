@@ -3,31 +3,22 @@ const machMedia = window.matchMedia("(prefers-color-scheme: dark)");
 if (machMedia.matches) {
     document.getElementById("root").classList.add("dark");
 } else {
-    document.getElementById("root").classList.add("dark");
+    document.getElementById("root").classList.add("light");
 }
 
-// [x] Creation of the object
-// [x] 
-
-// Create a object that represents the grid of pixels. It shoud take h, w as parameter
+/*
+Next : corregir el error que hace que pox-x y pos-y esten mal.
+Estan saliendo en la columna.
+*/
 
 const svgDrawer = {
+
     createPixelGrid(width, height) {
         let container = new Array();
         for (i = 0; i < height; i++) {
             container.push(new Array(width));
         }
         return container;
-    },
-
-    editValueOfSinglePixelInGrid(
-        newPixelValue,
-        pixelPositionX,
-        pixelPositionY,
-        pixelGrid
-    ) {
-        pixelGrid[pixelPositionX][pixelPositionY] = newPixelValue;
-        return pixelGrid;
     },
 
     createGridofDivElements(pixelGrid) {
@@ -55,35 +46,21 @@ const svgDrawer = {
             pixelDivs[i].addEventListener("click", function () {
                 const x = this.getAttribute("pos-x");
                 const y = this.getAttribute("pos-y");
-                grid[y][x] = "as"
-                return {"x" : x, "y" : y};
+                editSinglePixelInGrid(x,y)
             });
         }
     },
 
-    returnGrid() {
-        grid[2][3] = "as"
-        return grid
+    editSinglePixelInGrid(x,y) {
+        grid[x][y] = "#asdwex"
     }
+
 };
 
-/*
-TODO: no me convence manipular la variable grid, tendría que ser
-algo que me aseguro de que es creado de esta manera. Puedo almacenar
-el estado dentro del mismo objeto? Puedo hacerlo en una base de datos?
-un local storage con opción de guardar en base de datos o un JSON?
-
-Voy a tener que crear algún tipo de reconciliación, cada vez que se cambie
-el grid llamar esa reconciliación que analiza el estado previo del grid y el nuevo
-y crea una operación de actualización que ajusta el elemento que es afectado y ningún otro
-
-El estado podría ser como un json en una variable
-
-Como persiste el estado de una app de react? donde es "temporalmente almacenado?"
-
-Donde almacena el estado REDUX? Es una varibale en memoria, es un local storage, una especie de caché?
-*/
 const grid = svgDrawer.createPixelGrid(10, 10);
 const divElements = svgDrawer.createGridofDivElements(grid);
+
 document.getElementById("root").appendChild(divElements);
+
+const editSinglePixelInGrid = svgDrawer.editSinglePixelInGrid;
 svgDrawer.addEventListenersToPixelDivs();
