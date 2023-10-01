@@ -1,1 +1,5 @@
 *.code-workspace
+node_modules
+.parcel-cache/
+dist
+out
