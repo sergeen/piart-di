@@ -12,4 +12,3 @@ function ui() {
 }
 
 export default ui;
-
