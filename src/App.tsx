@@ -1,21 +1,12 @@
 import { Component } from "solid-js";
 // import ui from "./components/ui";
-import { createMatrix, createDivGrid, attachDivGrid } from "./components/svgDrawer";
+import CreateMatrix from "./components/CreateMatrix";
+import CreateDivGrid from "./components/CreateDivGrid";
+import './style.scss'
 
-const rootDiv = document.getElementById("root");
-
-/* 1 Color de la interfaz */
-// ui();
-
-/* TODO:
-  creo que el problema es el contexto en el que se agregan los event listeners
-  si el document.addEventLister lo hago acá seguro tengo acceso a la informacion
-  que necesito
-*/
-
-const svgDrawerMatrix = createMatrix(10, 10);
-const svgDrawerDivGrid = createDivGrid(svgDrawerMatrix);
-const svgDrawersCellDivs = attachDivGrid(rootDiv, svgDrawerDivGrid);
+const svgDrawerMatrix = CreateMatrix(10, 10);
+// const svgDrawerDivGrid = createDivGrid(svgDrawerMatrix);
+// const svgDrawersCellDivs = attachDivGrid(rootDiv, svgDrawerDivGrid);
 
 // for (let i = 0; i < svgDrawersCellDivs.length; i++) {
 //   svgDrawersCellDivs[i].addEventListener("click", (e) =>
@@ -29,11 +20,7 @@ const svgDrawersCellDivs = attachDivGrid(rootDiv, svgDrawerDivGrid);
 // }
 
 const App: Component = () => {
-  return (
-    <div>
-      hola!
-    </div>
-  );
+  return <CreateDivGrid matrix={svgDrawerMatrix} />;
 };
 
 export default App;

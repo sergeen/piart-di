@@ -14,10 +14,12 @@
   "license": "ISC",
   "dependencies": {
     "parcel": "^2.9.3",
-    "solid-js": "^1.7.6"
+    "solid-js": "^1.7.6",
+    "styled-components": "^6.0.8"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "2.9.3",
+    "@types/styled-components": "^5.1.28",
     "jsdoc": "^4.0.2",
     "solid-devtools": "^0.27.3",
     "typescript": "^5.1.3",
