@@ -2,25 +2,13 @@ import { Component } from "solid-js";
 // import ui from "./components/ui";
 import CreateMatrix from "./components/CreateMatrix";
 import CreateDivGrid from "./components/CreateDivGrid";
-import './style.scss'
+import './App.scss'
 
-const svgDrawerMatrix = CreateMatrix(10, 10);
-// const svgDrawerDivGrid = createDivGrid(svgDrawerMatrix);
-// const svgDrawersCellDivs = attachDivGrid(rootDiv, svgDrawerDivGrid);
-
-// for (let i = 0; i < svgDrawersCellDivs.length; i++) {
-//   svgDrawersCellDivs[i].addEventListener("click", (e) =>
-//       svgDrawer.editCellDiv(
-//           svgDrawerMatrix,
-//           e.target.attributes.xpos.value,
-//           e.target.attributes.ypos.value,
-//           1
-//       )
-//   );
-// }
 
 const App: Component = () => {
-  return <CreateDivGrid matrix={svgDrawerMatrix} />;
+  return <>
+  <CreateDivGrid matrix={CreateMatrix(8, 8)} />
+  </>;
 };
 
 export default App;

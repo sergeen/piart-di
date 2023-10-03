@@ -1,14 +1,25 @@
+$size : 8px;
+
 .rowDiv {
   display: flex;
 }
 .cellDiv {
-  background-color: transparent;
-  border: 1px solid rgb(14, 153, 141);
-  height: 20px;
+  align-items: center;
+  background-color: #1f222b;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  height: $size;
+  justify-content: center;
+  margin: 1px 1px 0 0;
   transition: background-color 0.4s ease-in-out;
-  width: 20px;
+  width: $size;
+  &.inactive {
+    background-color: rgb(161, 145, 0);
+  }
   &:hover {
     background-color: deeppink;
     transition: background-color 0.2s ease-in-out;
   }
-    }
+}

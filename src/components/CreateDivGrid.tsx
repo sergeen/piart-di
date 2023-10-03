@@ -1,26 +1,60 @@
-import { Component } from "solid-js";
+import { Component, createSignal } from "solid-js";
 import './CreateDivGrid.scss';
 
+// TypeScript
 interface matrix {
-  matrix  : number[][]
+  matrix: boolean[][];
+}
+
+declare module "solid-js" {
+  namespace JSX {
+    interface HTMLAttributes<T> {
+      posx?: number;
+      posy?: number;
+    }
+  }
 }
 
 /** Crea una representación para colocar en el DOM.
- * Se le pasa una matriz bidimencional y a partir de eso representa
+ * Se le pasa una matriz bidimensional y a partir de eso representa
  * una estructura de DIVs que equivale a esa matriz.
  * Retorna un nodo
  */
-const CreateDivGrid : Component<matrix> = ({ matrix }) => {
+const CreateDivGrid: Component<matrix> = ({ matrix }) => {
+  const [localMatrix, setLocalMatrix] = createSignal(matrix);
+
+  const editSingleCell = (
+    posx: number,
+    posy: number,
+    value: boolean
+  ) => {
+    const newMatrix = localMatrix();
+    newMatrix[posx][posy] = !newMatrix[posx][posy];
+    setLocalMatrix([...newMatrix]);
+  };
+
   return (
-      <div class="gridDiv">
-          {matrix.map((yElements) => (
-              <div class="rowDiv">
-                  {yElements.map((xElements) => (
-                      <div class="cellDiv">2</div>
-                  ))}
-              </div>
+    <div class="gridDiv">
+      {matrix.map((elementX, xIndex) => (
+        <div class="rowDiv">
+          {elementX.map((elementX, yIndex) => (
+            <div
+              class={`cellDiv ${localMatrix()[xIndex][yIndex] ? 'active' : 'inactive'}`}
+              posx={xIndex}
+              posy={yIndex}
+              onclick={(e) =>
+                editSingleCell(
+                  // TODO: toda esta lógica se puede mover a la declaracion de editSingleCell
+                  e.target.getAttribute("posx") as unknown as number,
+                  e.target.getAttribute("posy") as unknown as number,
+                  true
+                )
+              }
+            ></div>
           ))}
-      </div>
+        </div>
+      ))}
+    </div>
   );
 }
 

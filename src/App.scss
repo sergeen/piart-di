@@ -1,0 +1,12 @@
+#root {
+  width: 100%;
+  height: 100%;
+  &.dark {
+    background-color: #181b24;
+  }
+  &.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

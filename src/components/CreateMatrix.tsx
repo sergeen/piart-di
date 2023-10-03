@@ -4,10 +4,10 @@
  * para hacer la representación en el DOM.
  */
 
-const CreateMatrix = (xElements : number, yElements : number) : number[][] => {
-  let matrix: number[][] = [];
+const CreateMatrix = (xElements : number, yElements : number) : boolean[][] => {
+  let matrix: boolean[][] = [];
   for (let i = 0; i < yElements; i++) {
-      matrix.push(new Array(xElements).fill(0));
+      matrix.push(new Array(xElements).fill(false));
   }
   console.log("Matrix created: " + matrix.length + " / " + matrix[0].length)
   return matrix;
