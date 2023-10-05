@@ -10,6 +10,7 @@ const CreateMatrix = (xElements : number, yElements : number) : boolean[][] => {
       matrix.push(new Array(xElements).fill(false));
   }
   console.log("Matrix created: " + matrix.length + " / " + matrix[0].length)
+  console.log(matrix)
   return matrix;
 }
 

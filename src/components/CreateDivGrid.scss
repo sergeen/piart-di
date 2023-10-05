@@ -1,11 +1,11 @@
-$size : 8px;
+$size : 14px;
 
 .rowDiv {
   display: flex;
 }
 .cellDiv {
   align-items: center;
-  background-color: #1f222b;
+  background-color: #181b24;
   color: white;
   cursor: pointer;
   display: flex;
@@ -18,8 +18,8 @@ $size : 8px;
   &.inactive {
     background-color: rgb(161, 145, 0);
   }
-  &:hover {
-    background-color: deeppink;
-    transition: background-color 0.2s ease-in-out;
-  }
+  // &:hover {
+  //   background-color: deeppink;
+  //   transition: background-color 0.2s ease-in-out;
+  // }
 }

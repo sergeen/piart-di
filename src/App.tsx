@@ -7,7 +7,7 @@ import './App.scss'
 
 const App: Component = () => {
   return <>
-  <CreateDivGrid matrix={CreateMatrix(8, 8)} />
+  <CreateDivGrid matrix={CreateMatrix(16, 16)} />
   </>;
 };
 
