@@ -1,4 +1,4 @@
-$size : 14px;
+$size : 20px;
 
 .rowDiv {
   display: flex;
@@ -12,11 +12,10 @@ $size : 14px;
   font-family: 'Courier New', Courier, monospace;
   height: $size;
   justify-content: center;
-  margin: 1px 1px 0 0;
-  transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   width: $size;
-  &.inactive {
-    background-color: rgb(161, 145, 0);
+  &.active {
+    background-color: rgb(29, 102, 116);
   }
   // &:hover {
   //   background-color: deeppink;
