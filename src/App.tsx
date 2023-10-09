@@ -9,7 +9,7 @@ const App: Component = () => {
   return(
   <CreateDivGrid matrix={
     !localStorage.getItem("svg-drawer-current")
-    ? CreateMatrix(16, 16)
+    ? CreateMatrix(16)
     : JSON.parse( localStorage.getItem("svg-drawer-current") )
   }/>
   )
