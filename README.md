@@ -10,3 +10,6 @@ New! The drawing gets saved to local storage, which can be good or bad depending
 NEXT STEPS:
 1. Review the code and look for improvements, errors and re-organization. Ask for good practices and investigate.
 2. Add the ability to draw by painting with a finger or mouse.
+3. It is posible to deploy the documentation to Vercel?
+4. Make a save button and a menú to retrive the saved elements.
+5. Add colors, think about getting colors from lospec.
