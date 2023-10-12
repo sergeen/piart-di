@@ -12,13 +12,12 @@ $size : 20px;
   font-family: 'Courier New', Courier, monospace;
   height: $size;
   justify-content: center;
-  transition: background-color 0.3s ease-in-out;
   width: $size;
+  box-sizing: border-box;
   &.active {
-    background-color: rgb(29, 102, 116);
+    background-color: #1d6674;
   }
-  // &:hover {
-  //   background-color: deeppink;
-  //   transition: background-color 0.2s ease-in-out;
-  // }
+  &:hover {
+    border: 1px solid #2a90a5;
+  }
 }

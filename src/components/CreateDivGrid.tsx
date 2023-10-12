@@ -1,4 +1,5 @@
 import { Component, createEffect, createSignal } from "solid-js";
+import { createStore } from "solid-js/store";
 import './CreateDivGrid.scss';
 
 // TypeScript
@@ -9,8 +10,7 @@ interface matrix {
 declare module "solid-js" {
   namespace JSX {
     interface HTMLAttributes<T> {
-      posx?: number;
-      posy?: number;
+      coordinate?: string;
     }
   }
 }
@@ -22,15 +22,30 @@ declare module "solid-js" {
  */
 const CreateDivGrid: Component<matrix> = ({ matrix }) => {
   
+  type Coordinates = {
+    x: number;
+    y: number;
+  };
+  
+  const idToCoordinate = (id: string): Coordinates => {
+      const [x, y] = id.split(".").map(Number);
+      return { x, y };
+  };
+
+  const coordinateToId = (coordinates : Coordinates): string => {
+    const parsed = `${coordinates.x}.${coordinates.y}`;
+    return parsed;
+  };
+
   const [localMatrix, setLocalMatrix] = createSignal(matrix);
 
   const editSingleCell = (
-    posx: number,
-    posy: number,
+    id: string,
     value: boolean
   ) => {
+    const coordinate = idToCoordinate(id);
     const newMatrix = localMatrix();
-    newMatrix[posx][posy] = !newMatrix[posx][posy];
+    newMatrix[coordinate.x][coordinate.y] = !newMatrix[coordinate.x][coordinate.y];
     setLocalMatrix([...newMatrix]);
   };
 
@@ -50,13 +65,11 @@ const CreateDivGrid: Component<matrix> = ({ matrix }) => {
           {elementX.map((elementX, yIndex) => (
             <div
               class={`cellDiv ${localMatrix()[xIndex][yIndex] ? 'inactive' : 'active'}`}
-              posx={xIndex}
-              posy={yIndex}
+              coordinate={coordinateToId({x : xIndex, y : yIndex})}
               onclick={(e) =>
                 editSingleCell(
                   // TODO: toda esta lógica se puede mover a la declaracion de editSingleCell
-                  e.target.getAttribute("posx") as unknown as number,
-                  e.target.getAttribute("posy") as unknown as number,
+                  e.target.getAttribute("coordinate") as unknown as string,
                   true
                 )
               }
