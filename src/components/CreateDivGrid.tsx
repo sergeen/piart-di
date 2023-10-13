@@ -1,6 +1,12 @@
 import { Component, createEffect, createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
+import { idToCoordinate ,coordinateToId } from './commons';
 import './CreateDivGrid.scss';
+import { useMyContext } from "./state/context";
+
+const {
+    name,
+} = useMyContext();
 
 // TypeScript
 interface matrix {
@@ -21,21 +27,6 @@ declare module "solid-js" {
  * Retorna un nodo
  */
 const CreateDivGrid: Component<matrix> = ({ matrix }) => {
-  
-  type Coordinates = {
-    x: number;
-    y: number;
-  };
-  
-  const idToCoordinate = (id: string): Coordinates => {
-      const [x, y] = id.split(".").map(Number);
-      return { x, y };
-  };
-
-  const coordinateToId = (coordinates : Coordinates): string => {
-    const parsed = `${coordinates.x}.${coordinates.y}`;
-    return parsed;
-  };
 
   const [localMatrix, setLocalMatrix] = createSignal(matrix);
 
@@ -60,6 +51,7 @@ const CreateDivGrid: Component<matrix> = ({ matrix }) => {
 
   return (
     <div class="gridDiv">
+      {name}
       {matrix.map((elementX, xIndex) => (
         <div class="rowDiv">
           {elementX.map((elementX, yIndex) => (
