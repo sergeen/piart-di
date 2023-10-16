@@ -1,11 +1,10 @@
-import { Component, createEffect, createSignal } from "solid-js";
+import { Component, createSignal } from "solid-js";
 import { coordStringToCoordObj ,coordObjToCoordStr, createMatrix } from './PureFunctions';
-import { useMyContext } from "./state/context";
+import { useMyContext } from "../state/context";
 import './TheStage.scss';
 
 const {
     currentColor,
-    currentSize,
 } = useMyContext();
 
 // TypeScript
@@ -21,6 +20,10 @@ declare module "solid-js" {
   }
 }
 
+/**
+ * TODO: la forma en que está hecho el componente implica que si las dimensiones
+ * de la matriz cambia, se va a romper el dibujo.
+ */
 const TheStage: Component<matrix> = () => {
 
   const matrix = createMatrix(16)
@@ -32,18 +35,9 @@ const TheStage: Component<matrix> = () => {
   ) => {
     const coordinates = coordStringToCoordObj(coordString);
     const newMatrix = localMatrix();
-    newMatrix[coordinates.x][coordinates.y] = "a";
+    newMatrix[coordinates.x][coordinates.y] = currentColor;
     setLocalMatrix([...newMatrix]);
   };
-
-  // createEffect(() => {
-  //   saveMatrixToLocalStore(localMatrix())
-  // })
-
-  // const saveMatrixToLocalStore = ( matrix : string[][] ) => {
-  //   const matrixString = JSON.stringify(matrix);
-  //   localStorage.setItem('svg-drawer-current', matrixString);
-  // }
 
   return (
     <div class="gridDiv">

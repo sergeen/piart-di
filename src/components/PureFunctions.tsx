@@ -19,8 +19,8 @@ export const createMatrix = (size: number): string[][] | Error => {
   }
   
   const matrix = new Array();
-  for ( let i = 0; i < 4; i++) {
-      matrix.push(new Array(4).fill(0));
+  for ( let i = 0; i < size; i++) {
+      matrix.push(new Array(size).fill(0));
   }
   return matrix;
 };

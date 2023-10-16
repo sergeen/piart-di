@@ -3,7 +3,7 @@ import { createContext, createSignal, useContext } from 'solid-js';
 
 const initialState = {
   currentColor: "a",
-  currentSize: 16,
+  activeMatrix: [],
 };
 
 const MyContext = createContext(initialState);
