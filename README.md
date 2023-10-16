@@ -28,3 +28,11 @@ NEXT STEPS:
 
 WONDERING:
 1. styled components could be a way of handling the colors for the block
+
+CREDITS:
+
+The editor uses as primary font:
+m5x7 by Daniel Linssen (https://managore.itch.io/m5x7)
+
+The editor includes color palettes created by:
+PAPERBACK-2 PALETTE by Doph (https://lospec.com/palette-list/paperback-2)

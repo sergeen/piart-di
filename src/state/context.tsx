@@ -2,18 +2,16 @@
 import { createContext, createSignal, useContext } from 'solid-js';
 
 const initialState = {
-  currentColor: "a",
-  activeMatrix: [],
+  currentColor: "#b8c2b9",
+  currentPalette: ["#b8c2b9","#382b26"],
 };
 
 const MyContext = createContext(initialState);
 
 export function MyProvider(props) {
 
-const [name, setName] = createSignal(props.name || '');
-
  return (
-    <MyContext.Provider value={[name, setName]}>
+    <MyContext.Provider>
       {props.children}
     </MyContext.Provider>
   );

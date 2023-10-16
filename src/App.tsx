@@ -3,13 +3,13 @@ import { Component } from "solid-js";
 import TheStage from "./components/TheStage";
 import './App.scss'
 import { MyProvider, useMyContext } from "./state/context";
-import Button from "./components/Button";
+import ColorSelector from "./components/ColorSelector";
 
 const App: Component = () => {
 
   return (
       <MyProvider>
-          <Button />
+          <ColorSelector />
           <TheStage />
       </MyProvider>
   );

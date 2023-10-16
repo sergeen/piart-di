@@ -8,8 +8,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
   button {
     padding: 10px;
   }
+}
+
+@font-face {
+  font-family: 'm5x7';
+  src: url('./assets/m5x7.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+p {
+  font-family: "m5x7";
+  color: white;
+  font-size: 22px;
+  letter-spacing: 2px;
 }

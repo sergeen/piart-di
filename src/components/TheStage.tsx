@@ -40,12 +40,15 @@ const TheStage: Component<matrix> = () => {
   };
 
   return (
-    <div class="gridDiv">
+    <div class="stage">
       {matrix.map((elementX, xIndex) => (
         <div class="rowDiv">
           {elementX.map((elementX, yIndex) => (
             <div
-              class={`cellDiv ${localMatrix()[xIndex][yIndex]}`}
+              style={
+                { "background-color" : localMatrix()[xIndex][yIndex] }
+              }
+              class={`cellDiv`}
               data-coord-string={coordObjToCoordStr({x : xIndex, y : yIndex})}
               onclick={(e) =>
                 editSingleCell( e.target.getAttribute("data-coord-string") as unknown as string )

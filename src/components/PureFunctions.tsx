@@ -20,7 +20,7 @@ export const createMatrix = (size: number): string[][] | Error => {
   
   const matrix = new Array();
   for ( let i = 0; i < size; i++) {
-      matrix.push(new Array(size).fill(0));
+      matrix.push(new Array(size).fill("#181b24"));
   }
   return matrix;
 };
