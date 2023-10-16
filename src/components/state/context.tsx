@@ -2,7 +2,8 @@
 import { createContext, createSignal, useContext } from 'solid-js';
 
 const initialState = {
-  name: "John Doe",
+  currentColor: "a",
+  currentSize: 16,
 };
 
 const MyContext = createContext(initialState);

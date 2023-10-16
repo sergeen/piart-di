@@ -23,3 +23,8 @@ NEXT STEPS:
   2.3 Ask for saving current unsaved drawing before loading the stored one.
 --------------------------------------------------------------------------
 3. Add colors, think about getting colors from lospec.
+4. Prettier rules?
+5. EsLint rules?
+
+WONDERING:
+1. styled components could be a way of handling the colors for the block
