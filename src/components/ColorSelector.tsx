@@ -1,7 +1,7 @@
 
 import { useMyContext } from "../state/context";
 import './ColorSelector.scss';
-import TextContent from "../languaje/textContent";
+import TextContent from "../languaje/TextContent";
 
 const { currentPalette } = useMyContext();
 

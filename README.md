@@ -1,15 +1,16 @@
-🌱
+# 🌱
 
 This is a small project to create a simple web interface that helps me create pixel art. The idea is simple: it's just a web app where I can create pixel art and then export it for use in other projects.
 
 I want to keep it extremely simple. For now, I'm focusing on one-color drawings and avoiding functionality outside the drawing itself. Also, the idea is to learn about Solid.js, so I need to review the code from time to time and improve the architecture.
 
-The project is currently live here: https://svg-drawer-rouge.vercel.app/
+The project is currently live here: <https://svg-drawer-rouge.vercel.app/>
 
 NEW!
 Nicer interaction with the canvas in desktop.
 
 NEXT STEPS:
+
 0. Add the ability to draw by draggin the cursor or touch.
 1. Tech-deb checkpoint
   1.1 Re organice the code based in the new experiences.
@@ -21,18 +22,18 @@ NEXT STEPS:
   2.2 Explore saved drawings
   2.3 Load save drawing
   2.3 Ask for saving current unsaved drawing before loading the stored one.
---------------------------------------------------------------------------
 3. Add colors, think about getting colors from lospec.
 4. Prettier rules?
 5. EsLint rules?
 
 WONDERING:
+
 1. styled components could be a way of handling the colors for the block
 
 CREDITS:
 
 The editor uses as primary font:
-m5x7 by Daniel Linssen (https://managore.itch.io/m5x7)
+m5x7 by Daniel Linssen <https://managore.itch.io/m5x7>
 
 The editor includes color palettes created by:
-PAPERBACK-2 PALETTE by Doph (https://lospec.com/palette-list/paperback-2)
+PAPERBACK-2 PALETTE by Doph <https://lospec.com/palette-list/paperback-2>
