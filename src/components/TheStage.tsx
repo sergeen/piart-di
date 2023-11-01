@@ -1,6 +1,6 @@
 import { Component, createSignal } from "solid-js";
 import { coordStringToCoordObj ,coordObjToCoordStr, createMatrix } from './PureFunctions';
-import { useMyContext } from "../state/context";
+import { useMyContext } from "../context/context";
 import './TheStage.scss';
 
 const {
