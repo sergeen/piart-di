@@ -1,39 +1,28 @@
-# 🌱
+# 🌱 PADI: Pixel Art Design Interface
 
-This is a small project to create a simple web interface that helps me create pixel art. The idea is simple: it's just a web app where I can create pixel art and then export it for use in other projects.
+A web app designed for crafting simple pixel art drawings that can be exported for use in other projects.
 
-I want to keep it extremely simple. For now, I'm focusing on one-color drawings and avoiding functionality outside the drawing itself. Also, the idea is to learn about Solid.js, so I need to review the code from time to time and improve the architecture.
+This is mostly a playground, something to have fun, an experiment arround the idea of "learning in public" and a way to explore the posibilities of the impact of very small updates over long periods of time.
 
-The project is currently live here: <https://svg-drawer-rouge.vercel.app/>
+I'm using this project to learn Solid.js, so I will probably change the code structure a lot and constantly refactor.
 
-NEW!
-Nicer interaction with the canvas in desktop.
+The expected timeframe for this app is approximately one year, with the goal of being "ready" by the end of 2024.
 
-NEXT STEPS:
+You can access the live version of the project [here](https://svg-drawer-rouge.vercel.app/).
 
-0. Add the ability to draw by draggin the cursor or touch.
-1. Tech-deb checkpoint
-  1.1 Re organice the code based in the new experiences.
-  1.2 Share state in preparation for the save feature.
-  1.3 Why only the affected div is changing? I thoug worked diferently.
-  1.1 Share state in preparation for the save feature. ContextAPI? Redux?
-2. Save feature
-  2.1 Save current drawing to local storage
-  2.2 Explore saved drawings
-  2.3 Load save drawing
-  2.3 Ask for saving current unsaved drawing before loading the stored one.
-3. Add colors, think about getting colors from lospec.
-4. Prettier rules?
-5. EsLint rules?
+## NEW!
 
-WONDERING:
+**2311150357:** Now, the color can be selected. The default is transparent, and there is spacing between the blocks to make it easier to use.
 
-1. styled components could be a way of handling the colors for the block
+## NEXT STEPS:
 
-CREDITS:
+- Implement drawing by dragging the cursor or touch.
+- Save the drawing as a svg
 
-The editor uses as primary font:
-m5x7 by Daniel Linssen <https://managore.itch.io/m5x7>
+## CREDITS:
+
+The primary font used in the editor:
+[m5x7](https://managore.itch.io/m5x7) by Daniel Linssen.
 
 The editor includes color palettes created by:
-PAPERBACK-2 PALETTE by Doph <https://lospec.com/palette-list/paperback-2>
+[PAPERBACK-2 PALETTE](https://lospec.com/palette-list/paperback-2) by Doph.

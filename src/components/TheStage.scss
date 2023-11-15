@@ -1,28 +1,71 @@
 $size : 20px;
+$decorationRadius: 2px;
 
 .stage {
-  border: 1px solid white;
+  border: 3px solid white;
+  border-radius: 2px;
   padding: 10px;
 }
 
 .rowDiv {
   display: flex;
 }
+
 .cellDiv {
-  align-items: center;
-  background-color: #181b24;
-  color: white;
-  cursor: pointer;
   display: flex;
-  font-family: 'Courier New', Courier, monospace;
-  height: $size;
   justify-content: center;
-  width: $size;
+  align-items: center;
+  cursor: pointer;
   box-sizing: border-box;
+  margin: 1px;
+  border-radius: 2px;
+  width: $size;
+  height: $size;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+
   &.a {
     background-color: #1d6674;
   }
+
   &:hover {
     border: 1px solid #2a90a5;
+  }
+}
+
+.color-selector {
+  display: flex;
+  box-sizing: border-box;
+  margin: 12px;
+  border: 3px solid white;
+  border-radius: $decorationRadius;
+  padding-left: 10px;
+  width: 410px;
+
+  .color-samples {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+
+    .color-thumb {
+      cursor: pointer;
+      margin: 1px;
+      border-radius: 4px;
+      width: 50px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        box-sizing: border-box;
+        border: 1px solid white;
+      }
+
+      &.active {
+        box-sizing: border-box;
+        border: $decorationRadius solid white;
+      }
+    }
   }
 }
