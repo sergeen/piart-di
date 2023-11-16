@@ -1,61 +1,72 @@
 $size : 20px;
 $decorationRadius: 2px;
+$bigSpace: 12px;
 
-.stage {
+@mixin boldBorder {
   border: 3px solid white;
-  border-radius: 2px;
-  padding: 10px;
+  border-radius: $decorationRadius;
 }
 
-.rowDiv {
-  display: flex;
-}
-
-.cellDiv {
-  display: flex;
+@mixin flexCenter {
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  box-sizing: border-box;
-  margin: 1px;
-  border-radius: 2px;
-  width: $size;
-  height: $size;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+}
 
-  &.a {
-    background-color: #1d6674;
+
+div {
+  box-sizing: border-box;
+}
+
+.stage {
+  border-radius: 2px;
+  padding: $bigSpace;
+  @include boldBorder;
+
+  .rowDiv {
+    display: flex;
+    justify-content: center;
   }
 
-  &:hover {
-    border: 1px solid #2a90a5;
+  .cellDiv {
+    cursor: pointer;
+    margin: 1px;
+    border-radius: 2px;
+    width: $size;
+    height: $size;
+    color: white;
+
+    &.a {
+      background-color: #1d6674;
+    }
+
+    &:hover {
+      border: 1px solid #2a90a5;
+    }
   }
 }
+
 
 .color-selector {
   display: flex;
-  box-sizing: border-box;
-  margin: 12px;
-  border: 3px solid white;
-  border-radius: $decorationRadius;
-  padding-left: 10px;
-  width: 410px;
+  padding: $bigSpace;
+  @include boldBorder;
+  width: 100%;
+  max-width: 382px;
+  margin-bottom: $bigSpace;
 
   .color-samples {
-    display: flex;
     align-items: center;
-    margin-left: 8px;
+    margin-left: $bigSpace;
+    display: flex;
 
     .color-thumb {
+      @include flexCenter;
       cursor: pointer;
       margin: 1px;
       border-radius: 4px;
       width: 50px;
       height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
       &:hover {
         box-sizing: border-box;
@@ -67,5 +78,18 @@ $decorationRadius: 2px;
         border: $decorationRadius solid white;
       }
     }
+  }
+}
+
+.action-bar {
+  display: flex;
+  margin-bottom: $bigSpace;
+  @include boldBorder;
+  padding: 14px;
+  width: 100%;
+  max-width: 382px;
+  .title-input {
+    font-size: 23px;
+    width: 100%;
   }
 }

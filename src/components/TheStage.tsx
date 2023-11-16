@@ -40,7 +40,8 @@ export const initialState = {
 const TheStage: Component<matrix> = () => {
   const matrix = createMatrix(16);
 
-  const [localMatrix, setLocalMatrix] = createSignal(matrix);
+  const [currentDrawingName, setCurrentDrawingName] = createSignal("untitled");
+  const [currentMatrix, setCurrentMatrix] = createSignal(matrix);
   const [currentColor, setCurrentColor] = createSignal(
     initialState.defaultColor
   );
@@ -50,13 +51,28 @@ const TheStage: Component<matrix> = () => {
 
   const editSingleCell = (coordString: string) => {
     const coordinates = coordStringToCoordObj(coordString);
-    const newMatrix = localMatrix();
+    const newMatrix = currentMatrix();
     newMatrix[coordinates.x][coordinates.y] = currentColor();
-    setLocalMatrix([...newMatrix]);
+    setCurrentMatrix([...newMatrix]);
+  };
+
+  const handleSaveToLocalStorage = () => {
+    localStorage.setItem(`svgDrawerMatrix_${currentDrawingName()}`, JSON.stringify(currentMatrix()));
   };
 
   return (
     <>
+      <div class="action-bar">
+        <input
+          type="text"
+          onchange={(e) => setCurrentDrawingName(e.target.value)}
+          value={currentDrawingName()}
+          class="title-input"
+        />
+        <button onclick={ e => handleSaveToLocalStorage()}>
+          {TextContent.saveButton}
+        </button>
+      </div>
       <div class="color-selector">
         <p>{TextContent.colorSelectorTitle}</p>
         <div class="color-samples">
@@ -82,7 +98,7 @@ const TheStage: Component<matrix> = () => {
           <div class="rowDiv">
             {elementX.map((elementX, yIndex) => (
               <div
-                style={{ "background-color": localMatrix()[xIndex][yIndex] }}
+                style={{ "background-color": currentMatrix()[xIndex][yIndex] }}
                 class={`cellDiv`}
                 data-coord-string={coordObjToCoordStr({ x: xIndex, y: yIndex })}
                 onclick={(e) =>
