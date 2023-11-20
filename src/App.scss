@@ -25,6 +25,10 @@
   font-family: 'm5x7';
 }
 
+div {
+  box-sizing: border-box;
+}
+
 p,
 div,
 h1,
@@ -36,10 +40,6 @@ input,
 select,
 option {
   font-family: 'm5x7';
-}
-
-p {
-  color: white;
   font-size: 22px;
   letter-spacing: 2px;
 }

@@ -20,6 +20,10 @@ declare module "solid-js" {
   }
 }
 
+const getLocalStoredDrawings = () => {
+  return JSON.parse(localStorage.getItem('svgDrawerStoredDrawings'))
+}
+
 export const initialState = {
   currentColor: "transparent",
   currentPalette: [
@@ -30,7 +34,7 @@ export const initialState = {
       colors: ["#b8c2b9", "#382b26", "transparent"],
     },
   ],
-  localStoredDrawings: JSON.parse(localStorage.getItem('svgDrawerStoredDrawings')),
+  localStoredDrawings: getLocalStoredDrawings(),
   currentMatrix: createMatrix(16),
   currentDrawingTitle: "Untitled",
   currentDrawing: {
@@ -56,7 +60,7 @@ const TheStage: Component<matrix> = () => {
     setCurrentMatrix([...newMatrix]);
   };
 
-  const pushToArray = (object, array) => {
+  const handleNewDrawingSave = (object, array) => {
     const index = array.findIndex((obj) => obj.title === object.title);
     if (index !== -1) {
       array[index] = currentDrawing();
@@ -91,7 +95,7 @@ const TheStage: Component<matrix> = () => {
     if (currentLocalStoredDrawings() === null ) {
       localStorage.setItem("svgDrawerStoredDrawings", JSON.stringify([currentDrawing()]))
     } else {
-      localStorage.setItem("svgDrawerStoredDrawings", JSON.stringify(pushToArray(
+      localStorage.setItem("svgDrawerStoredDrawings", JSON.stringify(handleNewDrawingSave(
         currentDrawing(), 
         currentLocalStoredDrawings()
       )))
@@ -100,6 +104,18 @@ const TheStage: Component<matrix> = () => {
 
   return (
     <>
+      <div class="list-stored">
+        <select onchange={e => console.log(e.target.value)}>
+        <For each={currentLocalStoredDrawings()}>
+          {(drawing) => (
+            <option>
+              {drawing.title}
+            </option>
+          )}
+        </For>
+        </select>
+      </div>
+      
       <div class="action-bar">
         <input
           type="text"

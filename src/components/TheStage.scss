@@ -8,14 +8,24 @@ $bigSpace: 12px;
 }
 
 @mixin flexCenter {
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
 }
 
+.list-stored {
+  @include boldBorder;
+  margin-bottom: $bigSpace;
+  border-radius: $decorationRadius;
+  border-radius: 2px;
+  padding: $bigSpace;
+  width: 100%;
+  max-width: 382px;
 
-div {
-  box-sizing: border-box;
+  select {
+    padding: $bigSpace 4px;
+    width: 100%;
+  }
 }
 
 .stage {
@@ -46,19 +56,19 @@ div {
   }
 }
 
-
 .color-selector {
   display: flex;
   padding: $bigSpace;
   @include boldBorder;
+  margin-bottom: $bigSpace;
   width: 100%;
   max-width: 382px;
-  margin-bottom: $bigSpace;
+  color: white;
 
   .color-samples {
+    display: flex;
     align-items: center;
     margin-left: $bigSpace;
-    display: flex;
 
     .color-thumb {
       @include flexCenter;
@@ -88,8 +98,9 @@ div {
   padding: 14px;
   width: 100%;
   max-width: 382px;
+
   .title-input {
-    font-size: 23px;
     width: 100%;
+    font-size: 23px;
   }
 }
