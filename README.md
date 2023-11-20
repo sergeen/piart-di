@@ -1,4 +1,4 @@
-# 🌱 PARTDI: Pixel Art Design Interface
+# 🌱 piart-di: Pixel Art, design interface
 
 A web app designed for crafting simple pixel art drawings that can be exported for use in other projects.
 
