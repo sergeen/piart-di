@@ -1,4 +1,4 @@
-# 🌱 PADI: Pixel Art Design Interface
+# 🌱 PARTDI: Pixel Art Design Interface
 
 A web app designed for crafting simple pixel art drawings that can be exported for use in other projects.
 
