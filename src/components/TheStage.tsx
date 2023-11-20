@@ -36,7 +36,7 @@ export const initialState = {
   ],
   localStoredDrawings: getLocalStoredDrawings(),
   currentMatrix: createMatrix(16),
-  currentDrawingTitle: "Untitled",
+  currentTitle: "Untitled",
   currentDrawing: {
     title: "",
     date: null,
@@ -49,9 +49,9 @@ const TheStage: Component<matrix> = () => {
   const [currentMatrix, setCurrentMatrix] = createSignal(initialState.currentMatrix);
   const [currentColor, setCurrentColor] = createSignal(initialState.currentColor);
   const [currentPalette, setCurrentPalette] = createSignal(initialState.currentPalette[0].colors);
-  const [currentDrawingTitle, setCurrentDrawingTitle] = createSignal(initialState.currentDrawingTitle)
+  const [currentTitle, setCurrentTitle] = createSignal(initialState.currentTitle)
   const [currentDrawing, setCurrentDrawing] = createSignal(initialState.currentDrawing)
-  const [currentLocalStoredDrawings, setCurrentLocalStoredDrawings] = createSignal(initialState.localStoredDrawings)
+  const [currentLocalStore, setCurrentLocalStore] = createSignal(initialState.localStoredDrawings)
 
   const editSingleCell = (coordString: string) => {
     const coordinates = coordStringToCoordObj(coordString);
@@ -73,14 +73,14 @@ const TheStage: Component<matrix> = () => {
   createEffect(() => {
 
     // When any of this values are updated
-    currentDrawingTitle();
+    currentTitle();
     currentColor();
     currentMatrix();
     currentPalette();
 
     // Set the current Drawing
     setCurrentDrawing({
-      title: currentDrawingTitle(),
+      title: currentTitle(),
       date: new Date(),
       matrix: currentMatrix(),
     })
@@ -92,21 +92,26 @@ const TheStage: Component<matrix> = () => {
   })
 
   const handleSaveToLocalStorage = () => {
-    if (currentLocalStoredDrawings() === null ) {
+    if (currentLocalStore() === null ) {
       localStorage.setItem("svgDrawerStoredDrawings", JSON.stringify([currentDrawing()]))
     } else {
       localStorage.setItem("svgDrawerStoredDrawings", JSON.stringify(handleNewDrawingSave(
         currentDrawing(), 
-        currentLocalStoredDrawings()
+        currentLocalStore()
       )))
     }
+    setCurrentLocalStore(getLocalStoredDrawings());
   };
 
   return (
     <>
       <div class="list-stored">
-        <select onchange={e => console.log(e.target.value)}>
-        <For each={currentLocalStoredDrawings()}>
+        <select onchange={e => {
+          const selectedDrawing = currentLocalStore().find((drawing) => drawing.title === e.target.value)
+          setCurrentMatrix(selectedDrawing.matrix)
+          setCurrentTitle(selectedDrawing.title)
+        }}>
+        <For each={currentLocalStore()}>
           {(drawing) => (
             <option>
               {drawing.title}
@@ -119,8 +124,8 @@ const TheStage: Component<matrix> = () => {
       <div class="action-bar">
         <input
           type="text"
-          onchange={(e) => setCurrentDrawingTitle(e.target.value)}
-          value={currentDrawingTitle()}
+          onchange={(e) => setCurrentTitle(e.target.value)}
+          value={currentTitle()}
           class="title-input"
         />
         <button onclick={(e) => handleSaveToLocalStorage()}>
