@@ -2,24 +2,23 @@
 
 A web app designed for crafting simple pixel art drawings that can be exported for use in other projects.
 
-This is mostly a playground, something to have fun, an experiment arround the idea of "learning in public" and a way to explore the posibilities of the impact of very small updates over long periods of time.
+You can access the live version of the project [here](https://piart-di.vercel.app/).
 
-I'm using this project to learn Solid.js, so I will probably change the code structure a lot and constantly refactor.
+This is mostly a playground, something to have fun, an experiment around the idea of "learning in public" that means that the code may change drastically as I experiment with it.
 
-The expected timeframe for this app is approximately one year, with the goal of being "ready" by the end of 2024.
+The expected timeframe for this app is approximately one year, with the goal of being "ready" by the end of 2024. I want to see how much I can make doing small updates over a long period of time.
 
-You can access the live version of the project [here](https://svg-drawer-rouge.vercel.app/).
+## New in this version!
 
-## NEW!
+**2311150357:** The drawings can be saved and retrieved in a list.
 
-**2311150357:** Now, the color can be selected. The default is transparent, and there is spacing between the blocks to make it easier to use.
+## Next steps:
 
-## NEXT STEPS:
+- Implement nice save and load modal
+- Implement an option so save the drawing as a SVG file
+- Be able to scale the drawing so it looks like pixel art but big.
 
-- Implement drawing by dragging the cursor or touch.
-- Save the drawing as a svg
-
-## CREDITS:
+## Credits:
 
 The primary font used in the editor:
 [m5x7](https://managore.itch.io/m5x7) by Daniel Linssen.
